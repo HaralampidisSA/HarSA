@@ -14,6 +14,6 @@ namespace HarSA.Domain
 
         public DateTime? DateDeleted { get; set; }
 
-        public bool IsDeleted { get; set; }
+        public int? IsDeleted { get; set; }
     }
 }
