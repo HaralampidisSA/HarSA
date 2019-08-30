@@ -1,4 +1,5 @@
-﻿using HarSA.Startups;
+﻿using FluentValidation.AspNetCore;
+using HarSA.Startups;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -24,7 +25,7 @@ namespace HarSA.AspNetCore.Api.Infrastructure
                 options.SubstituteApiVersionInUrl = true;
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddFluentValidation();
 
             services.AddApiVersioning(options => options.ReportApiVersions = true);
         }

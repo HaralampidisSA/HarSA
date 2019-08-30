@@ -9,11 +9,11 @@ using System.IO;
 
 namespace HarSA.AspNetCore.Api.Infrastructure
 {
-    public abstract class SwashbuckleBaseStartup : IAppStartup
+    public abstract class BaseSwashbuckleStartup : IAppStartup
     {
         private readonly string _xmlFile;
 
-        protected SwashbuckleBaseStartup(string xmlFile)
+        public BaseSwashbuckleStartup(string xmlFile)
         {
             _xmlFile = xmlFile;
         }
