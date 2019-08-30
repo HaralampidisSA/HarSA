@@ -2,6 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Alexandros Nakos</Authors>
+    <Copyright>Haralampidis SA</Copyright>
+    <PackageProjectUrl>https://github.com/HaralampidisSA/HarSA</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
