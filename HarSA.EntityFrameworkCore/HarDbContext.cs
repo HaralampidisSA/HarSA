@@ -31,7 +31,7 @@ namespace HarSA.EntityFrameworkCore
             foreach (var item in ChangeTracker.Entries().Where(w => w.State == EntityState.Added))
             {
                 item.CurrentValues["DateCreated"] = DateTime.Now;
-                item.CurrentValues["IsDeleted"] = false;
+                item.CurrentValues["IsDeleted"] = 0;
             }
 
             foreach (var item in ChangeTracker.Entries().Where(w => w.State == EntityState.Modified))
@@ -43,7 +43,7 @@ namespace HarSA.EntityFrameworkCore
             {
                 item.State = EntityState.Modified;
                 item.CurrentValues["DateDeleted"] = DateTime.Now;
-                item.CurrentValues["IsDeleted"] = true;
+                item.CurrentValues["IsDeleted"] = 1;
             }
 
             return base.SaveChanges();

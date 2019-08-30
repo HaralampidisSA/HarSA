@@ -14,7 +14,7 @@ namespace HarSA.EntityFrameworkCore
         public virtual void Configure(EntityTypeBuilder<TEntity> builder)
         {
             builder.HasKey(k => k.Id);
-            builder.HasQueryFilter(f => !f.IsDeleted);
+            builder.HasQueryFilter(f => f.IsDeleted == 0);
             builder.Property(p => p.Timestamp).IsRowVersion();
         }
     }
