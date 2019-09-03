@@ -6,7 +6,6 @@ using System.Linq.Expressions;
 
 namespace HarSA.EntityFrameworkCore.Repositories
 {
-    [Obsolete]
     public interface IRepo<T> : IDisposable where T : BaseEntity, new()
     {
         HarDbContext Context { get; }

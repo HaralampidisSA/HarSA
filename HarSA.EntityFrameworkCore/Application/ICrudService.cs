@@ -1,10 +1,8 @@
 ﻿using HarSA.Domain;
 using HarSA.Infrastructure;
-using System;
 
 namespace HarSA.EntityFrameworkCore.Application
 {
-    [Obsolete]
     public interface ICrudService<TEntity> where TEntity : BaseEntity, new()
     {
         TEntity Get(int id);

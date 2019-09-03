@@ -6,7 +6,6 @@ using System.Linq;
 
 namespace HarSA.EntityFrameworkCore.Application
 {
-    [Obsolete]
     public class CrudService<TEntity> : ICrudService<TEntity> where TEntity : BaseEntity, new()
     {
         protected IRepo<TEntity> Repository { get; }

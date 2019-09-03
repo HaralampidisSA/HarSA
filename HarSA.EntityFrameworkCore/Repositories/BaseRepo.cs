@@ -10,7 +10,6 @@ using System.Linq.Expressions;
 
 namespace HarSA.EntityFrameworkCore.Repositories
 {
-    [Obsolete]
     public class BaseRepo<T> : IRepo<T> where T : BaseEntity, new()
     {
         protected readonly HarDbContext Db;

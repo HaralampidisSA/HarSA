@@ -4,7 +4,6 @@ using System.Linq;
 
 namespace HarSA.EntityFrameworkCore
 {
-    [Obsolete]
     public class HarDbContext : DbContext
     {
         public HarDbContext(DbContextOptions<HarDbContext> options) : base(options)
