@@ -6,10 +6,9 @@ using System.Linq.Expressions;
 
 namespace HarSA.EntityFrameworkCore.Repositories
 {
-    [Obsolete]
-    public interface IRepo<T> : IDisposable where T : BaseEntity, new()
+    public interface IRepository<T> : IDisposable where T : BaseEntity, new()
     {
-        HarDbContext Context { get; }
+        IDbContext Context { get; }
 
         IQueryable<T> QueryTable { get; }
 
@@ -17,11 +16,6 @@ namespace HarSA.EntityFrameworkCore.Repositories
         /// Gets the number of records.
         /// </summary>
         int Count { get; }
-
-        /// <summary>
-        /// Gets if the istance has any changes.
-        /// </summary>
-        bool HasChanges { get; }
 
         /// <summary>
         /// Gets if table has any records.
@@ -120,8 +114,6 @@ namespace HarSA.EntityFrameworkCore.Repositories
 
         int Add(T entity, bool persist = true);
 
-        int AddReturnEntityId(T entity, bool persist = true);
-
         int AddRange(IEnumerable<T> entities, bool persist = true);
 
         int Update(T entity, bool persist = true);
@@ -132,14 +124,6 @@ namespace HarSA.EntityFrameworkCore.Repositories
 
         int DeleteRange(IEnumerable<T> entities, bool persist = true);
 
-        int Delete(int id, byte[] timeStamp, bool persist = true);
-
         int SaveChanges();
-
-        void BeginTransaction();
-
-        void CommitTransaction();
-
-        void RollbackTransaction();
     }
 }

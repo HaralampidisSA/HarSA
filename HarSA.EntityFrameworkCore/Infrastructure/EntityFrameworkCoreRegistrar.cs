@@ -13,8 +13,11 @@ namespace HarSA.EntityFrameworkCore.Infrastructure
 
         public void Register(ContainerBuilder builder, ITypeFinder typeFinder, HarConfig config, IConfiguration configuration)
         {
-            builder.RegisterGeneric(typeof(BaseRepo<>)).As(typeof(IRepo<>)).InstancePerLifetimeScope();
-            builder.RegisterGeneric(typeof(CrudService<>)).As(typeof(ICrudService<>)).InstancePerLifetimeScope();
+            // builder.RegisterGeneric(typeof(BaseRepo<>)).As(typeof(IRepo<>)).InstancePerLifetimeScope();
+            // builder.RegisterGeneric(typeof(CrudService<>)).As(typeof(ICrudService<>)).InstancePerLifetimeScope();
+
+            builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();
+            builder.RegisterGeneric(typeof(HarCrudService<>)).As(typeof(IHarCrudService<>)).InstancePerLifetimeScope();
         }
     }
 }

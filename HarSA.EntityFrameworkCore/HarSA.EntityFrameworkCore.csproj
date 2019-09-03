@@ -2,11 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <Version>0.1.1</Version>
+    <Version>0.2.0</Version>
     <Authors>Alexandros Nakos</Authors>
     <PackageProjectUrl>https://github.com/HaralampidisSA/HarSA</PackageProjectUrl>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;1138</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

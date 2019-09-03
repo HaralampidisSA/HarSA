@@ -6,12 +6,11 @@ using System.Linq;
 
 namespace HarSA.EntityFrameworkCore.Application
 {
-    [Obsolete]
-    public class CrudService<TEntity> : ICrudService<TEntity> where TEntity : BaseEntity, new()
+    public class HarCrudService<TEntity> : IHarCrudService<TEntity> where TEntity : BaseEntity, new()
     {
-        protected IRepo<TEntity> Repository { get; }
+        protected IRepository<TEntity> Repository { get; }
 
-        public CrudService(IRepo<TEntity> repo)
+        public HarCrudService(IRepository<TEntity> repo)
         {
             Repository = repo;
         }

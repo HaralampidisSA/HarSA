@@ -1,22 +1,21 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using HarSA.Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 
 namespace HarSA.EntityFrameworkCore
 {
-    [Obsolete]
-    public class HarDbContext : DbContext
+    public class HarSADbContext : DbContext, IDbContext
     {
-        public HarDbContext(DbContextOptions<HarDbContext> options) : base(options)
+        public HarSADbContext(DbContextOptions<HarSADbContext> options) : base(options)
         {
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             var typeFinder = EngineContext.Current.Resolve<ITypeFinder>();
-            var typeConfigurations = typeFinder.FindClassesOfType(typeof(IEntityTypeConfiguration<>));
-
-            foreach (var typeConfiguration in typeConfigurations)
+            foreach (var typeConfiguration in typeFinder.FindClassesOfType(typeof(IEntityTypeConfiguration<>)))
             {
                 dynamic config = Activator.CreateInstance(typeConfiguration);
                 modelBuilder.ApplyConfiguration(config);
@@ -48,6 +47,11 @@ namespace HarSA.EntityFrameworkCore
             }
 
             return base.SaveChanges();
+        }
+
+        public virtual new DbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
+        {
+            return base.Set<TEntity>();
         }
     }
 }
