@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HarSA.AspNetCore.Api", "Har
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HarSA.EntityFrameworkCore", "HarSA.EntityFrameworkCore\HarSA.EntityFrameworkCore.csproj", "{F5F35E8C-6150-43E4-A5DF-5173203C7E8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarSA.AspNetCore.Mvc", "HarSA.AspNetCore.Mvc\HarSA.AspNetCore.Mvc.csproj", "{A239200D-BC58-4452-9669-5175FD80A016}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HarSA.AspNetCore.Mvc", "HarSA.AspNetCore.Mvc\HarSA.AspNetCore.Mvc.csproj", "{A239200D-BC58-4452-9669-5175FD80A016}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{516B353C-4D0F-438C-BD81-5555FAF8730E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
