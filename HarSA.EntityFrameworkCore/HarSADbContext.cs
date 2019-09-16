@@ -7,7 +7,7 @@ namespace HarSA.EntityFrameworkCore
 {
     public class HarSADbContext : DbContext, IDbContext
     {
-        public HarSADbContext(DbContextOptions<HarSADbContext> options) : base(options)
+        public HarSADbContext(DbContextOptions options) : base(options)
         {
 
         }
