@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System;
 using System.Net;
@@ -30,10 +31,13 @@ namespace HarSA.AspNetCore.Api.Infrastructure
     public class ExceptionMiddleware
     {
         private readonly RequestDelegate _next;
+        private readonly ILogger _logger;
 
-        public ExceptionMiddleware(RequestDelegate next)
+        public ExceptionMiddleware(RequestDelegate next,
+            ILoggerFactory loggerFactory)
         {
             _next = next;
+            _logger = loggerFactory.CreateLogger("ExceptionsHandler");
         }
 
         public async Task Invoke(HttpContext context)
@@ -50,6 +54,11 @@ namespace HarSA.AspNetCore.Api.Infrastructure
 
         private async Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
+            if (_logger != null)
+            {
+                _logger.LogError(exception, exception.Message);
+            }
+
             var response = context.Response;
 
             response.StatusCode = (int)HttpStatusCode.InternalServerError;
