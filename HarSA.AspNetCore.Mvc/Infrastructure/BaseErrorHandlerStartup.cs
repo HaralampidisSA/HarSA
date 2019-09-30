@@ -1,8 +1,12 @@
 ﻿using HarSA.Startups;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using System.Runtime.ExceptionServices;
+using System.Threading.Tasks;
 
 namespace HarSA.AspNetCore.Mvc.Infrastructure
 {
@@ -25,7 +29,30 @@ namespace HarSA.AspNetCore.Mvc.Infrastructure
             }
 
             // log errors
+            application.UseExceptionHandler(handler =>
+            {
+                handler.Run(context =>
+                {
+                    var exception = context.Features.Get<IExceptionHandlerFeature>()?.Error;
+                    if (exception == null)
+                    {
+                        return Task.CompletedTask;
+                    }
 
+                    try
+                    {
+                        var logger = EngineContext.Current.Resolve<ILoggerFactory>().CreateLogger("ErrorHandler");
+                        logger.LogError(exception, exception.Message);
+                    }
+                    finally
+                    {
+                        //rethrow the exception to show the error page
+                        ExceptionDispatchInfo.Throw(exception);
+                    }
+
+                    return Task.CompletedTask;
+                });
+            });
         }
 
         public virtual void ConfigureServices(IServiceCollection services, IConfiguration configuration)
