@@ -11,12 +11,12 @@ namespace HarSA.AspNetCore.Mvc.Infrastructure
     {
         public virtual int Order => 10000;
 
-        public void Configure(IApplicationBuilder application)
+        public virtual void Configure(IApplicationBuilder application)
         {
             application.UseMvcWithDefaultRoute();
         }
 
-        public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+        public virtual void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddFluentValidation();
         }
