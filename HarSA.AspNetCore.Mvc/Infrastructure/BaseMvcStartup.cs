@@ -1,7 +1,7 @@
-﻿using FluentValidation.AspNetCore;
+﻿using Autofac;
+using FluentValidation.AspNetCore;
 using HarSA.Startups;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,12 +13,19 @@ namespace HarSA.AspNetCore.Mvc.Infrastructure
 
         public virtual void Configure(IApplicationBuilder application)
         {
-            application.UseMvcWithDefaultRoute();
+            application.UseEndpoints(endpoints =>
+            {
+                endpoints.MapDefaultControllerRoute();
+            });
+        }
+
+        public virtual void ConfigureContainer(ContainerBuilder containerBuilder, IConfiguration configuration)
+        {
         }
 
         public virtual void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddFluentValidation();
+            services.AddControllersWithViews().AddFluentValidation();
         }
     }
 }

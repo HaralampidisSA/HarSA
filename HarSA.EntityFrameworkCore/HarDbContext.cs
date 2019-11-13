@@ -12,7 +12,7 @@ namespace HarSA.EntityFrameworkCore
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var typeFinder = EngineContext.Current.Resolve<ITypeFinder>();
+            var typeFinder = new AppDomainTypeFinder();
             var typeConfigurations = typeFinder.FindClassesOfType(typeof(IEntityTypeConfiguration<>));
 
             foreach (var typeConfiguration in typeConfigurations)

@@ -78,7 +78,7 @@ namespace HarSA.EntityFrameworkCore.Repositories
             => Table.Where(where).Include(include).FirstOrDefault();
 
         public IEnumerable<T> FromSql(string sqlString)
-            => Table.FromSql(sqlString);
+            => Table.FromSqlRaw(sqlString);
 
         public virtual IEnumerable<T> GetAll() => Table;
 

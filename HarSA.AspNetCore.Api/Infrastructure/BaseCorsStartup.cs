@@ -1,4 +1,5 @@
-﻿using HarSA.Startups;
+﻿using Autofac;
+using HarSA.Startups;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +13,10 @@ namespace HarSA.AspNetCore.Api.Infrastructure
         public virtual void Configure(IApplicationBuilder application)
         {
             application.UseCors("All");
+        }
+
+        public virtual void ConfigureContainer(ContainerBuilder containerBuilder, IConfiguration configuration)
+        {
         }
 
         public virtual void ConfigureServices(IServiceCollection services, IConfiguration configuration)

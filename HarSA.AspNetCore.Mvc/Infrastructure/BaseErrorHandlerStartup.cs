@@ -1,9 +1,11 @@
-﻿using HarSA.Startups;
+﻿using Autofac;
+using HarSA.Startups;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System.Runtime.ExceptionServices;
 using System.Threading.Tasks;
@@ -16,7 +18,7 @@ namespace HarSA.AspNetCore.Mvc.Infrastructure
 
         public virtual void Configure(IApplicationBuilder application)
         {
-            var enviroment = EngineContext.Current.Resolve<IHostingEnvironment>();
+            var enviroment = EngineContext.Current.Resolve<IWebHostEnvironment>();
             var useDetailedExceptionPage = enviroment.IsDevelopment();
 
             if (useDetailedExceptionPage)
@@ -55,9 +57,12 @@ namespace HarSA.AspNetCore.Mvc.Infrastructure
             });
         }
 
+        public virtual void ConfigureContainer(ContainerBuilder containerBuilder, IConfiguration configuration)
+        {
+        }
+
         public virtual void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-
         }
     }
 }

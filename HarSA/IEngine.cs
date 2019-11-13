@@ -1,4 +1,5 @@
-﻿using HarSA.Configurations;
+﻿using Autofac;
+using HarSA.Configurations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,7 +10,9 @@ namespace HarSA
 {
     public interface IEngine
     {
-        IServiceProvider ConfigureEngineServices(IServiceCollection services, IConfiguration configuration, HarConfig harConfig);
+        void ConfigureEngineServices(IServiceCollection services, IConfiguration configuration, HarConfig harConfig);
+
+        void ConfigureContainer(ContainerBuilder builder, IConfiguration configuration);
 
         void ConfigureEngineRequestPipeline(IApplicationBuilder application);
 

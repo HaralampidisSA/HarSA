@@ -1,4 +1,5 @@
-﻿using HarSA.Startups;
+﻿using Autofac;
+using HarSA.Startups;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
@@ -32,6 +33,10 @@ namespace HarSA.AspNetCore.Api.Infrastructure
                     options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
                 }
             });
+        }
+
+        public virtual void ConfigureContainer(ContainerBuilder containerBuilder, IConfiguration configuration)
+        {
         }
 
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)

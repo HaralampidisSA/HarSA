@@ -13,11 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HarSA.EntityFrameworkCore",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HarSA.AspNetCore.Mvc", "HarSA.AspNetCore.Mvc\HarSA.AspNetCore.Mvc.csproj", "{A239200D-BC58-4452-9669-5175FD80A016}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarSA.AspNetCore.Logging.Json", "HarSA.AspNetCore.Logging\HarSA.AspNetCore.Logging.Json.csproj", "{41F30860-E769-4299-A470-05C05C0B01CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HarSA.AspNetCore.Logging.Json", "HarSA.AspNetCore.Logging\HarSA.AspNetCore.Logging.Json.csproj", "{41F30860-E769-4299-A470-05C05C0B01CD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{7A043F45-2C16-476F-9A18-D8F632B4F926}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleLogWebApp", "SampleLogWebApp\SampleLogWebApp.csproj", "{8A8A321E-DF4B-4255-8608-5F972C24661A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleLogWebApp", "SampleLogWebApp\SampleLogWebApp.csproj", "{8A8A321E-DF4B-4255-8608-5F972C24661A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApi", "SampleApi\SampleApi.csproj", "{22A28776-F7E0-42B6-92C2-1687AB93980A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,12 +55,17 @@ Global
 		{8A8A321E-DF4B-4255-8608-5F972C24661A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A8A321E-DF4B-4255-8608-5F972C24661A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A8A321E-DF4B-4255-8608-5F972C24661A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22A28776-F7E0-42B6-92C2-1687AB93980A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22A28776-F7E0-42B6-92C2-1687AB93980A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22A28776-F7E0-42B6-92C2-1687AB93980A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22A28776-F7E0-42B6-92C2-1687AB93980A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8A8A321E-DF4B-4255-8608-5F972C24661A} = {7A043F45-2C16-476F-9A18-D8F632B4F926}
+		{22A28776-F7E0-42B6-92C2-1687AB93980A} = {7A043F45-2C16-476F-9A18-D8F632B4F926}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F1363241-1E78-4B17-B707-4A2B3CF30D8F}

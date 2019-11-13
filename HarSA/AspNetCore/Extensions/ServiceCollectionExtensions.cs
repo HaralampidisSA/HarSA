@@ -7,7 +7,7 @@ namespace HarSA.AspNetCore.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceProvider ConfigureApplicationServices(this IServiceCollection services, IConfiguration configuration)
+        public static void ConfigureApplicationServices(this IServiceCollection services, IConfiguration configuration)
         {
             // add config
             var config = services.ConfigureStartupConfig<HarConfig>(configuration.GetSection("HarConfig"));
@@ -15,7 +15,7 @@ namespace HarSA.AspNetCore.Extensions
 
             // create configure engine
             var engine = EngineContext.Create();
-            return engine.ConfigureEngineServices(services, configuration, config);
+            engine.ConfigureEngineServices(services, configuration, config);
         }
 
         public static TConfig ConfigureStartupConfig<TConfig>(this IServiceCollection services, IConfiguration configuration) where TConfig : class, new()

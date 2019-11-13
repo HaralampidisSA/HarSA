@@ -1,10 +1,10 @@
-﻿using HarSA.Startups;
+﻿using Autofac;
+using HarSA.Startups;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
-
 
 namespace HarSA.AspNetCore.Api.Infrastructure
 {
@@ -14,7 +14,10 @@ namespace HarSA.AspNetCore.Api.Infrastructure
 
         public virtual void Configure(IApplicationBuilder application)
         {
+        }
 
+        public virtual void ConfigureContainer(ContainerBuilder containerBuilder, IConfiguration configuration)
+        {
         }
 
         public virtual void ConfigureServices(IServiceCollection services, IConfiguration configuration)
