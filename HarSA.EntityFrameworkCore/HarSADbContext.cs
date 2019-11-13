@@ -14,7 +14,7 @@ namespace HarSA.EntityFrameworkCore
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var typeFinder = EngineContext.Current.Resolve<ITypeFinder>();
+            var typeFinder = new AppDomainTypeFinder();
             foreach (var typeConfiguration in typeFinder.FindClassesOfType(typeof(IEntityTypeConfiguration<>)))
             {
                 dynamic config = Activator.CreateInstance(typeConfiguration);
