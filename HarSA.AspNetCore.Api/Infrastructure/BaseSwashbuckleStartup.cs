@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.OpenApi.Models;
 using System;
 using System.IO;
 
@@ -57,6 +57,6 @@ namespace HarSA.AspNetCore.Api.Infrastructure
             });
         }
 
-        public abstract Info CreateInfoForApiVersion(ApiVersionDescription apiVersionDescription);
+        public abstract OpenApiInfo CreateInfoForApiVersion(ApiVersionDescription apiVersionDescription);
     }
 }
