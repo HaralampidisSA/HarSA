@@ -1,4 +1,5 @@
-﻿using HarSA.Startups;
+﻿using Autofac;
+using HarSA.Startups;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
@@ -18,6 +19,11 @@ namespace HarSA.AspNetCore.Api.Infrastructure
         public virtual void Configure(IApplicationBuilder application)
         {
             application.UseMiddleware<ExceptionMiddleware>();
+        }
+
+        public virtual void ConfigureContainer(ContainerBuilder containerBuilder, IConfiguration configuration)
+        {
+
         }
 
         public virtual void ConfigureServices(IServiceCollection services, IConfiguration configuration)

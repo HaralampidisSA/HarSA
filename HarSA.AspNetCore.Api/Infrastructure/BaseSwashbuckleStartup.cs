@@ -1,9 +1,10 @@
-﻿using HarSA.Startups;
+﻿using Autofac;
+using HarSA.Startups;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.OpenApi.Models;
 using System;
 using System.IO;
 
@@ -34,6 +35,10 @@ namespace HarSA.AspNetCore.Api.Infrastructure
             });
         }
 
+        public virtual void ConfigureContainer(ContainerBuilder containerBuilder, IConfiguration configuration)
+        {
+        }
+
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddSwaggerGen(options =>
@@ -52,6 +57,6 @@ namespace HarSA.AspNetCore.Api.Infrastructure
             });
         }
 
-        public abstract Info CreateInfoForApiVersion(ApiVersionDescription apiVersionDescription);
+        public abstract OpenApiInfo CreateInfoForApiVersion(ApiVersionDescription apiVersionDescription);
     }
 }

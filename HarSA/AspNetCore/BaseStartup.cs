@@ -1,9 +1,9 @@
-﻿using HarSA.AspNetCore.Extensions;
+﻿using Autofac;
+using HarSA.AspNetCore.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 
 namespace HarSA.AspNetCore
 {
@@ -11,7 +11,7 @@ namespace HarSA.AspNetCore
     {
         public virtual IConfiguration Configuration { get; }
 
-        public BaseStartup(IHostingEnvironment environment)
+        public BaseStartup(IWebHostEnvironment environment)
         {
             Configuration = new ConfigurationBuilder()
                 .SetBasePath(environment.ContentRootPath)
@@ -21,12 +21,17 @@ namespace HarSA.AspNetCore
                 .Build();
         }
 
-        public virtual IServiceProvider ConfigureServices(IServiceCollection services)
+        public virtual void ConfigureServices(IServiceCollection services)
         {
-            return services.ConfigureApplicationServices(Configuration);
+            services.ConfigureApplicationServices(Configuration);
         }
 
-        public virtual void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public virtual void ConfigureContainer(ContainerBuilder containerBuilder)
+        {
+            containerBuilder.ConfigureContainer(Configuration);
+        }
+
+        public virtual void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.ConfigureApplicationRequestPipeline();
         }

@@ -1,7 +1,7 @@
-﻿using FluentValidation.AspNetCore;
+﻿using Autofac;
+using FluentValidation.AspNetCore;
 using HarSA.Startups;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,7 +14,15 @@ namespace HarSA.AspNetCore.Api.Infrastructure
 
         public virtual void Configure(IApplicationBuilder application)
         {
-            application.UseMvc();
+            application.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+        }
+
+        public virtual void ConfigureContainer(ContainerBuilder containerBuilder, IConfiguration configuration)
+        {
+
         }
 
         public virtual void ConfigureServices(IServiceCollection services, IConfiguration configuration)
@@ -25,7 +33,9 @@ namespace HarSA.AspNetCore.Api.Infrastructure
                 options.SubstituteApiVersionInUrl = true;
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddFluentValidation();
+
+
+            services.AddControllers().AddFluentValidation();
 
             services.AddApiVersioning(options => options.ReportApiVersions = true);
         }

@@ -95,7 +95,7 @@ namespace HarSA.EntityFrameworkCore.Repositories
                 Table.Where(where).OrderByDescending(orderBy).Include(include);
 
         public IEnumerable<T> FromSql(string sqlString)
-            => Table.FromSql(sqlString);
+            => Table.FromSqlRaw(sqlString);
 
         public virtual IEnumerable<T> GetRange(int skip, int take)
             => GetRange(Table, skip, take);
