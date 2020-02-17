@@ -1,4 +1,6 @@
 ﻿using Autofac;
+using FluentValidation;
+using HarSA.AspNetCore.Api.FluentValidation;
 using HarSA.Startups;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
@@ -18,6 +20,10 @@ namespace HarSA.AspNetCore.Api.Infrastructure
 
         public virtual void ConfigureContainer(ContainerBuilder containerBuilder, IConfiguration configuration)
         {
+            var typeFinder = new AppDomainTypeFinder();
+            containerBuilder.RegisterType<HarFluentValidationValidatorFactory>().As<IValidatorFactory>().InstancePerLifetimeScope();
+
+            containerBuilder.RegisterAssemblyTypes(typeFinder.GetAssemblies().ToArray()).AsClosedTypesOf(typeof(IValidator<>)).InstancePerLifetimeScope();
         }
 
         public virtual void ConfigureServices(IServiceCollection services, IConfiguration configuration)
