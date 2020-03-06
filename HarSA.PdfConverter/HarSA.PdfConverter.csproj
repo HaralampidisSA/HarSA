@@ -1,21 +1,20 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>3.2.1</Version>
-    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <Authors>Alexandros Nakos</Authors>
-    <PackageProjectUrl>https://github.com/HaralampidisSA/HarSA</PackageProjectUrl>
     <Copyright>Haralampidis SA</Copyright>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/HaralampidisSA/HarSA</PackageProjectUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageIcon>kalodia_logo.png</PackageIcon>
     <PackageIconUrl />
   </PropertyGroup>
 
   <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="DocXToPdfConverter" Version="1.0.3" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <ProjectReference Include="..\HarSA\HarSA.csproj" />
   </ItemGroup>
