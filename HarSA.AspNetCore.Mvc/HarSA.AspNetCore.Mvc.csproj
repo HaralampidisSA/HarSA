@@ -9,6 +9,7 @@
     <Version>3.1.2</Version>
     <PackageIcon>kalodia_logo.png</PackageIcon>
     <PackageIconUrl />
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
