@@ -109,6 +109,8 @@ namespace HarSA.EntityFrameworkCore.Repositories
 
         T First<TIncludeField>(Expression<Func<T, bool>> where, Expression<Func<T, TIncludeField>> include);
 
+        T First<TSortField>(Expression<Func<T, bool>> where, Expression<Func<T, TSortField>> orderBy, bool ascending);
+
         T Find(int id);
 
         T Find(Expression<Func<T, bool>> where);

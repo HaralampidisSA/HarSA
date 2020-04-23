@@ -67,6 +67,11 @@ namespace HarSA.EntityFrameworkCore.Repositories
         public T First<TIncludeField>(Expression<Func<T, bool>> where, Expression<Func<T, TIncludeField>> include)
             => Table.Where(where).Include(include).FirstOrDefault();
 
+        public T First<TSortField>(Expression<Func<T, bool>> where, Expression<Func<T, TSortField>> orderBy, bool ascending)
+        {
+            return ascending ? Table.Where(where).OrderBy(orderBy).FirstOrDefault() : Table.Where(where).OrderByDescending(orderBy).FirstOrDefault();
+        }
+
         public T Find(int id) => Table.Find(id);
 
         public T Find(Expression<Func<T, bool>> where)
