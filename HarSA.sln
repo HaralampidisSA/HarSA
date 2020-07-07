@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestInfoApi", "TestInfoApi\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApi", "TestApi\TestApi.csproj", "{00473D48-5798-4720-B8E6-8D4ECE52C93D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarSA.PdfConverter", "HarSA.PdfConverter\HarSA.PdfConverter.csproj", "{733EEEF4-6AA9-418D-9BE7-2A795584AF09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HarSA.PdfConverter", "HarSA.PdfConverter\HarSA.PdfConverter.csproj", "{733EEEF4-6AA9-418D-9BE7-2A795584AF09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarSA.Logger.Client", "HarSA.Logger.Client\HarSA.Logger.Client.csproj", "{875DEE02-8A3E-4D11-AD63-82FC374A86C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +79,10 @@ Global
 		{733EEEF4-6AA9-418D-9BE7-2A795584AF09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{733EEEF4-6AA9-418D-9BE7-2A795584AF09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{733EEEF4-6AA9-418D-9BE7-2A795584AF09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{875DEE02-8A3E-4D11-AD63-82FC374A86C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{875DEE02-8A3E-4D11-AD63-82FC374A86C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{875DEE02-8A3E-4D11-AD63-82FC374A86C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{875DEE02-8A3E-4D11-AD63-82FC374A86C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
