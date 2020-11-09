@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>3.2.2</Version>
+    <Version>3.2.3</Version>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <Authors>Alexandros Nakos</Authors>
     <PackageProjectUrl>https://github.com/HaralampidisSA/HarSA</PackageProjectUrl>

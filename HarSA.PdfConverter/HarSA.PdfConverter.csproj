@@ -9,10 +9,11 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageIcon>kalodia_logo.png</PackageIcon>
     <PackageIconUrl />
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DocXToPdfConverter" Version="1.0.3" />
+    <PackageReference Include="DocXToPdfConverter" Version="1.0.5" />
   </ItemGroup>
 
   <ItemGroup>

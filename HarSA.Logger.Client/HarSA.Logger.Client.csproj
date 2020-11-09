@@ -9,6 +9,7 @@
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/HaralampidisSA/HarSA</PackageProjectUrl>
     <PackageIcon>kalodia_logo.png</PackageIcon>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
